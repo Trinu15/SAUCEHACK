@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FridgeNow — Cook What You Actually Have</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+
+  <div class="header">
+    <div class="header-top">
+      <div class="logo">FridgeNow <span class="logo-dot"></span></div>
+      <span class="time-badge" id="clock">8:00 PM</span>
+    </div>
+    <div class="header-sub">Cook what you <em>actually</em> have. Nothing more.</div>
+  </div>
+
+  <!-- SCREEN 1: INPUT -->
+  <div class="screen active" id="screen-input">
+    <div class="fridge-hero">
+      <div class="fridge-title">Open the fridge.<br>Tell me what's <em>real.</em></div>
+      <div class="fridge-desc">No substitutions. No "pick up X on the way." Just what's in your kitchen, right now.</div>
+    </div>
+
+    <div class="input-area">
+      <div class="ingredient-input-wrap">
+        <input class="ingredient-input" type="text" id="ing-input" placeholder="e.g. eggs, rice, garlic..." autocomplete="off" />
+        <button class="add-btn" onclick="addIngredient()" title="Add">+</button>
+      </div>
+
+      <div>
+        <div class="chips-label" style="margin-bottom:10px;">Your ingredients</div>
+        <div class="chips-area" id="chips-area"></div>
+      </div>
+
+      <div class="quick-adds">
+        <div class="chips-label">Quick add</div>
+        <div class="quick-adds-row">
+          <button class="quick-chip" onclick="quickAdd('eggs')">🥚 eggs</button>
+          <button class="quick-chip" onclick="quickAdd('rice')">🍚 rice</button>
+          <button class="quick-chip" onclick="quickAdd('onion')">🧅 onion</button>
+          <button class="quick-chip" onclick="quickAdd('garlic')">🧄 garlic</button>
+          <button class="quick-chip" onclick="quickAdd('tomato')">🍅 tomato</button>
+          <button class="quick-chip" onclick="quickAdd('bread')">🍞 bread</button>
+          <button class="quick-chip" onclick="quickAdd('cheese')">🧀 cheese</button>
+          <button class="quick-chip" onclick="quickAdd('butter')">🧈 butter</button>
+          <button class="quick-chip" onclick="quickAdd('pasta')">🍝 pasta</button>
+          <button class="quick-chip" onclick="quickAdd('potato')">🥔 potato</button>
+          <button class="quick-chip" onclick="quickAdd('chicken')">🍗 chicken</button>
+          <button class="quick-chip" onclick="quickAdd('lemon')">🍋 lemon</button>
+        </div>
+      </div>
+    </div>
+
+    <button class="cook-btn" id="cook-btn" onclick="getRecipes()" disabled>
+      🍳 Find what I can cook
+    </button>
+  </div>
+
+  <!-- SCREEN 2: LOADING -->
+  <div class="screen" id="screen-loading">
+    <div class="loading-screen">
+      <div class="spinner-ring"></div>
+      <div class="loading-text" id="loading-text">Raiding your fridge...</div>
+      <div class="loading-sub">Finding meals using only what you have</div>
+    </div>
+  </div>
+
+  <!-- SCREEN 3: RESULTS -->
+  <div class="screen" id="screen-results">
+    <button class="back-btn" onclick="goBack()">← back to fridge</button>
+    <div class="results-header">
+      <div class="results-title">Ready to cook</div>
+      <div class="results-headline" id="results-headline">Found <em>4 meals</em> you can make right now</div>
+      <div class="results-ingredients-used" id="results-ing-used"></div>
+    </div>
+    <div class="results-list" id="results-list"></div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
