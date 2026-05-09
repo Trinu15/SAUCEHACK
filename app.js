@@ -92,7 +92,7 @@ async function getRecipes() {
     if (el) el.textContent = loadingMessages[msgIdx];
   }, 1800);
 
-  const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE";
+  const GEMINI_API_KEY = "AIzaSyAJysc0v7wKZA8FqLLcmxtnRPdEUZejfks";
 
   const prompt = `You are a practical home cooking assistant. A tired person just opened their fridge at 8pm and found ONLY these ingredients: ${ingredients.join(', ')}.
 
